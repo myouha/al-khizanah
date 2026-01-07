@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Episode 1 – Introduction | الخزانة</title>
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: auto; }
+    .tags a { margin-right: 8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><a href="/">الخزانة</a></h1>
+  <hr>
+</header>
+
+
+
+<h2>Episode 1 – Introduction</h2>
+
+<iframe width="100%" height="420"
+  id="player"
+  width="100%"
+  height="420" 
+  src="https://www.youtube.com/embed/q1wgIX3WxB0?enablejsapi=1"
+  frameborder="0" allowfullscreen>
+</iframe>
+
+<h3>Chapters</h3>
+<ul>
+
+  <li>
+    <button onclick="seekTo( 252 )">
+      04:12 – Core idea
+    </button>
+  </li>
+
+  <li>
+    <button onclick="seekTo( 870 )">
+      14:30 – Real-life example
+    </button>
+  </li>
+
+</ul>
+
+<div class="tags">
+  <strong>Tags:</strong>
+  
+    <a href="/tags/philosophy/">#philosophy</a>
+  
+    <a href="/tags/psychology/">#psychology</a>
+  
+    <a href="/tags/society/">#society</a>
+  
+</div>
+
+<script>
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player');
+  }
+
+  function seekTo(seconds) {
+    if (player) {
+      player.seekTo(seconds, true);
+      player.playVideo();
+    }
+  }
+
+  
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+</script>
+
+
+
+</body>
+</html>

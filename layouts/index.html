@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<h2>حميع الفيذيوهات</h2>
+
+<input
+  id="search"
+  type="search"
+  placeholder="ابحث عن فيديو، موضوع، أو فصل…"
+  class="search-input"
+/>
+
+<ul id="results">
+{{ range where .Site.RegularPages "Section" "seasons" }}
+  <li>
+    <a href="{{ .RelPermalink }}">
+      الموسم {{ .Params.season }} · الحلقة {{ .Params.episode }} — {{ .Title }}
+    </a>
+  </li>
+{{ end }}
+</ul>
+
+<div class="tags">
+  <strong>Tags:</strong>
+  {{ range .Site.Taxonomies.tags }}
+    <a href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a>
+  {{ end }}
+</div>
+
+<script src="/fuse.min.js"></script>
+<script src="/search.js"></script>
+
+{{ end }}

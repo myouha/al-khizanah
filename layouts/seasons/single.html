@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<h2>{{ .Title }}</h2>
+
+<iframe width="100%" height="420"
+  id="player"
+  width="100%"
+  height="420" 
+  src="https://www.youtube.com/embed/{{ .Params.youtube_id }}?enablejsapi=1"
+  frameborder="0" allowfullscreen>
+</iframe>
+
+<h3>فصول</h3>
+<ul>
+{{ range .Params.chapters }}
+  <li>
+    <button onclick="seekTo({{ .seconds }})">
+      {{ .time }} – {{ .title }}
+    </button>
+  </li>
+{{ end }}
+</ul>
+
+<div class="tags">
+  <strong>Tags:</strong>
+  {{ range .Params.tags }}
+    <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+  {{ end }}
+</div>
+
+<script>
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player');
+  }
+
+  function seekTo(seconds) {
+    if (player) {
+      player.seekTo(seconds, true);
+      player.playVideo();
+    }
+  }
+
+  // Load YouTube API
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+</script>
+
+{{ end }}

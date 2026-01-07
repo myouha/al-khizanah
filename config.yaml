@@ -1,0 +1,21 @@
+baseURL: "https://myouha.github.com/al-khizanah"
+relativeURLs: true
+languageCode: "ar"
+title: "مكتبة البطاطي للككتب"
+
+languages:
+  ar:
+    languageName: "العربية"
+    weight: 1
+    contentDir: content
+
+taxonomies:
+  tag: "وسم"
+
+permalinks:
+  seasons: "/videos/:slug/"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
